@@ -35,11 +35,12 @@ class FeedEdit extends Component {
     formIsValid: false,
     imagePreview: null
   };
- 
+
   componentDidUpdate(prevProps, prevState) {
-    
     if (
-      this.props.editing && prevProps.editing !== this.props.editing && prevProps.selectedPost !== this.props.selectedPost
+      this.props.editing &&
+      prevProps.editing !== this.props.editing &&
+      prevProps.selectedPost !== this.props.selectedPost
     ) {
       const postForm = {
         title: {
