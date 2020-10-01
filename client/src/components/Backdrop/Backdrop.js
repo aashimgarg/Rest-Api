@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 
 import './Backdrop.css';
 
-const backdrop = props =>
+const backdrop = ({
+  onClick
+}) =>
   ReactDOM.createPortal(
     <div
-      className={['backdrop', props.open ? 'open' : ''].join(' ')}
-      onClick={props.onClick}
+      className={'backdrop'}
+      onClick={onClick}
     />,
     document.getElementById('backdrop-root')
   );
