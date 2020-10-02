@@ -16,4 +16,11 @@ app.use((req, res, next) => {
 
 app.use('/feed', feedRoutes);
 
-app.listen(8080);
+mongoose
+  .connect(
+    'mongodb+srv://aashimgarg:aashimgarg@shop-app.7uqv5.mongodb.net/post'
+  )
+  .then(result => {
+    app.listen(8080);
+  })
+  .catch(err => console.log(err));
