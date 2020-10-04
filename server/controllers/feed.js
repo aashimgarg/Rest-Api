@@ -24,12 +24,22 @@ exports.createPost = (req, res, next) => {
     error.statusCode = 422;
     throw error;
   }
+
+  // if we didnt the file from multer
+  if (!req.file) {
+    const error = new Error('No image provided.');
+    error.statusCode = 422;
+    throw error;
+  }
+  // adding the file path
+  const imageUrl = req.file.path;
+  
   const title = req.body.title;
   const content = req.body.content;
   const post = new Post({
     title: title,
     content: content,
-    imageUrl: 'images/n1.jpg',
+    imageUrl: imageUrl,
     creator: { name: 'Aashim' }
   });
   post
